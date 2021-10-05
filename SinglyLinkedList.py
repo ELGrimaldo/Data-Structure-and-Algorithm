@@ -52,6 +52,7 @@ class linkedList:
         currentNode.next = node
 
     #Fix deletion method...
+    #Add head and tail specification of Deletion
     def delete(self, ind):
         currentNode = self.head
 
@@ -65,7 +66,23 @@ class linkedList:
     # 1 -> 2 -> 3 -> 4 -> None
     # 4 -> 3 -> 2 -> 1 -> None
     def reverse(self):
-        pass
+        
+        currentNode = self.head
+        nextNode = None
+        
+
+        while True:
+            
+            prevNode = currentNode.next
+            currentNode.next = nextNode
+            nextNode = currentNode
+            
+            
+            if not prevNode:
+                self.head = currentNode
+                break
+            currentNode = prevNode 
+        
 
     def sort(self):
         pass
@@ -99,5 +116,6 @@ a.addValue(8)
 a.insert(2, 20)
 
 a.delete(3)
+a.printOut()
 a.reverse()
 a.printOut()
